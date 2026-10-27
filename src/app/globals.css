@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0c0a08;
+  --surface: #181512;
+  --surface-hover: #24201b;
+  --surface-active: #2e2822;
+  --ink: #ffffff;
+  --muted: #8f8a84;
+  --accent: #c9a45a;
+  --accent-hover: #dbb568;
+  --accent-ink: #0c0a08;
+
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --step-lead: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  --step-head: clamp(1.85rem, 1.3rem + 2.5vw, 3.25rem);
+  --step-display: clamp(2.4rem, 1.6rem + 3.8vw, 4.75rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-hover: 180ms;
+  --t-press: 140ms;
+  --t-reveal: 800ms;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-active: var(--surface-active);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --font-sans: var(--font-hanken), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  font-size: var(--step-body);
+  line-height: 1.55;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Motion Layer from taste-skill */
+@keyframes load-line {
+  from {
+    transform: translateY(105%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes load-rise {
+  from {
+    transform: translateY(18px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-line-0 {
+    animation: load-line 800ms var(--ease-expo) 100ms both;
+  }
+  .animate-line-1 {
+    animation: load-line 800ms var(--ease-expo) 200ms both;
+  }
+  .animate-rise-1 {
+    animation: load-rise 650ms var(--ease-out) 320ms both;
+  }
+  .animate-rise-2 {
+    animation: load-rise 650ms var(--ease-out) 440ms both;
+  }
+  .animate-rise-3 {
+    animation: load-rise 650ms var(--ease-out) 560ms both;
+  }
+  .animate-rise-preview {
+    animation: load-rise 850ms var(--ease-expo) 250ms both;
+  }
+}
+
+/* Infinite Marquee Animation (Pure CSS, 0 JS) */
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 34s linear infinite;
+  will-change: transform;
+}
+
+.marquee-container:hover .marquee-track,
+.marquee-container:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .marquee-track {
+    animation-duration: 46s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+    overflow-x: auto;
+  }
+}
