@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { site } from "@/data/site";
 import { getWhatsAppUrl, contactMessages } from "@/lib/contact";
 import { Button } from "@/components/ui/Button";
@@ -29,15 +30,14 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-200 ${
-        scrolled
-          ? "bg-[#14100c]"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-200 ${scrolled
+        ? "bg-[#14100c]"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-18 flex items-center justify-between">
         {/* Brand wordmark */}
-        <a
+        <Link
           href="/"
           onClick={(e) => {
             e.preventDefault();
@@ -47,7 +47,7 @@ export function Navbar() {
         >
           {site.name}
           <span className="text-[var(--accent)] ml-1 text-sm font-normal">.dev</span>
-        </a>
+        </Link>
 
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
