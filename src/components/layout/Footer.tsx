@@ -12,7 +12,7 @@ export function Footer() {
           <a
             href="#"
             className="inline-block text-xl font-semibold tracking-tight text-[var(--ink)] focus-visible:outline-none"
-            aria-label="Adithiya - Back to top"
+            aria-label={`${siteConfig.author}.dev - Back to top`}
           >
             <span>{siteConfig.author}</span>
             <span className="text-[var(--accent)] font-normal">.dev</span>

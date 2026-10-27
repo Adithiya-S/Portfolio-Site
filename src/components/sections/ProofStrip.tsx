@@ -18,6 +18,7 @@ export function ProofStrip() {
 
   return (
     <section className="py-20 sm:py-28 px-5 sm:px-8 max-w-7xl mx-auto">
+      <h2 className="sr-only">Key Metrics and Core Technologies</h2>
       {/* 3 Metrics in a side-by-side editorial row */}
       <div className="grid grid-cols-3 gap-4 sm:gap-12 pb-16">
         {metrics.map((m) => (

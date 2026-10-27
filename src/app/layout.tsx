@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import { site } from "@/data/site";
+import { faqItems } from "@/data/faq";
 import "./globals.css";
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     siteName: `${site.name} — ${site.role}`,
     images: [
       {
-        url: "/og-image.png",
+        url: `${site.url}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: `${site.fullName} — ${site.role}`,
@@ -54,6 +55,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: site.seo.title,
     description: site.seo.description,
+    images: [`${site.url}/opengraph-image`],
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
   },
   robots: {
     index: true,
@@ -92,19 +97,46 @@ export default function RootLayout({
           "@type": "EducationalOrganization",
           name: site.college,
         },
+        knowsAbout: [
+          "Web Development",
+          "Full-Stack Development",
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Database Architecture",
+          "API Integration",
+        ],
       },
       {
         "@type": "ProfessionalService",
         "@id": `${site.url}/#service`,
         name: `${site.fullName} — ${site.role}`,
         url: site.url,
-        priceRange: "$$",
         telephone: site.contact.whatsappDisplay,
         address: {
           "@type": "PostalAddress",
           addressLocality: site.city,
           addressCountry: site.country,
         },
+        areaServed: ["Worldwide", "India", "Chennai"],
+        knowsAbout: [
+          "Freelance Web Development",
+          "Small Business Websites",
+          "Full-Stack Web Applications",
+          "Custom Dashboards",
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
       },
     ],
   };

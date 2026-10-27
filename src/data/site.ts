@@ -24,7 +24,7 @@ export const site = {
   seo: {
     title: "Adithiya | Freelance Web Developer for Small Businesses",
     description:
-      "Freelance web developer building fast websites and full-stack web apps for small businesses. 5 projects live in production. Direct communication on WhatsApp.",
+      "Adithiya is a freelance web developer building fast websites and full-stack web apps for small businesses. 5 projects live. Fast replies on WhatsApp.",
   },
 } as const;
 

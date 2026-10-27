@@ -65,7 +65,7 @@ export function SelectedWork() {
                       width={project.media.width}
                       height={project.media.height}
                       className="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-300"
-                      loading={idx < 2 ? "eager" : "lazy"}
+                      loading="lazy"
                     />
                   </div>
                 </div>
