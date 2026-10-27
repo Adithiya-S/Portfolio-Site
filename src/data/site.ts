@@ -7,7 +7,7 @@ export const site = {
   location: "Chennai, India",
   city: "Chennai",
   country: "India",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adithiya.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adithiya-dev.vercel.app",
 
   contact: {
     whatsappNumber: "917397254456",
