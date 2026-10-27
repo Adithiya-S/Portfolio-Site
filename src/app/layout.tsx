@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/data/site";
 import { faqItems } from "@/data/faq";
 import { HashScrollHandler } from "@/components/layout/HashScrollHandler";
@@ -170,6 +171,7 @@ export default function RootLayout({
         </a>
         <HashScrollHandler />
         {children}
+        <Analytics />
       </body>
     </html>
   );
