@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import { site } from "@/data/site";
 import { faqItems } from "@/data/faq";
+import { HashScrollHandler } from "@/components/layout/HashScrollHandler";
 import "./globals.css";
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -167,6 +168,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <HashScrollHandler />
         {children}
       </body>
     </html>

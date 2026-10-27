@@ -38,7 +38,11 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 h-18 flex items-center justify-between">
         {/* Brand wordmark */}
         <a
-          href="#"
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
           className="text-lg font-semibold tracking-tight text-[var(--ink)] hover:text-[var(--accent)] transition-colors focus-visible:outline-none"
         >
           {site.name}

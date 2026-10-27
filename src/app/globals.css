@@ -43,6 +43,7 @@ html {
   font-family: var(--font-sans);
   color-scheme: dark;
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
   scrollbar-gutter: stable;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

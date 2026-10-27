@@ -10,7 +10,7 @@ export function Footer() {
         {/* Left Column (Cols 1-5): Wordmark & Statement */}
         <div className="lg:col-span-5">
           <a
-            href="#"
+            href="#top"
             className="inline-block text-xl font-semibold tracking-tight text-[var(--ink)] focus-visible:outline-none"
             aria-label={`${siteConfig.author}.dev - Back to top`}
           >
